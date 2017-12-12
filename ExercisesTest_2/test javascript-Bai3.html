@@ -1,0 +1,43 @@
+<html>
+    <body>
+       <script language="javascript" type="text/javascript">
+          //<!--
+            var str = prompt("Nhập input:", "[1,2,3,4,5,6,7,8,9,10,11]")
+            var i;
+            var arrayNum = new Array();
+
+            // xử lý chuổi nhập vào
+            for(i=0;i<str.length;i++)
+            {
+              if(str[i] ==',' || str[i] =='[' ||  str[i] ==']') continue;
+              //
+              else
+              {
+                i =  getResult(i,str);
+              }
+            }
+            // Tách số và bình phương số lẻ
+            function getResult(i,str)
+            {
+              for(j=i+1;j<str.length;j++)
+              {
+                if(str[j] ==',' || str[j] =='[' ||  str[j] ==']')
+                {
+                  var number = parseInt(str.slice(i,j));
+                  if(number %2 ==1)
+                  {
+                    arrayNum.push(Math.pow(parseInt(str.slice(i,j)),2));
+                  }
+                  return j;
+                }
+                else
+                {
+                  continue;
+                }
+              }            
+            }         
+            console.log(arrayNum);
+          //-->
+       </script>
+    </body>
+ </html>
